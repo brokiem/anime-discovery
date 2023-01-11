@@ -22,6 +22,10 @@ export default {
   },
   mounted() {
     this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
+
+    window.onresize = () => {
+      this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
+    };
   }
 }
 </script>
