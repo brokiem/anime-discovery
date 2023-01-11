@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainView from './components/MainView.vue'
+import MainView from './views/MainView.vue'
 </script>
 
 <template>
@@ -7,7 +7,3 @@ import MainView from './components/MainView.vue'
     <MainView />
   </main>
 </template>
-
-<style scoped>
-
-</style>
