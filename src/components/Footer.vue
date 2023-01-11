@@ -1,6 +1,6 @@
 <template>
-  <footer id="footer" :class="loading === null ? 'fixed bottom-0 w-full' : ''" class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-grey">
-    <span class="mx-auto text-sm text-gray-500 sm:text-center dark:text-gray-400">
+  <footer id="footer" :class="loading === null ? 'fixed bottom-0 w-full' : ''" class="p-4 bg-white rounded-lg shadow flex items-center justify-center md:p-4 dark:bg-grey">
+    <span class="mx-auto text-sm text-gray-500 text-center dark:text-gray-400">
       © {{new Date().getFullYear()}} <a href="https://brokiem.is-a.dev/" class="hover:underline">brokiem</a> | Data from <a href="https://myanimelist.net" class="hover:underline">MyAnimeList.net</a>
     </span>
   </footer>
