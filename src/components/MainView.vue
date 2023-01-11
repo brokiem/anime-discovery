@@ -4,8 +4,8 @@
       <SearchInput/>
 
       <div class="mt-8">
-        <Skeleton v-if="($store.state.loading !== null && $store.state.loading)" class="fade-in"/>
-        <Anime v-if="($store.state.loading !== null && !$store.state.loading)" class="fade-in"/>
+        <Skeleton v-if="($store.state.loading !== null && $store.state.loading)"/>
+        <Anime v-if="($store.state.loading !== null && !$store.state.loading)"/>
 
         <h1 v-if="$store.state.loading === null" class="text-center">
           Welcome to brokiem's Anime discovery!<br>
