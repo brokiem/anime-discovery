@@ -1,7 +1,7 @@
 {
-  "name": "anime",
-  "version": "0.0.0",
-  "private": true,
+  "name": "anime-discovery",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "dev": "vite --host",
     "build": "run-p type-check build-only",
