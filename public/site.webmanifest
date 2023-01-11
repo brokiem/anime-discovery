@@ -3,7 +3,7 @@
   "name": "Anime Discovery",
   "short_name": "Anime Discovery",
   "description": "Discover your favorite anime with brokiem\"s Anime Discovery",
-  "theme_color": "#ffffff",
+  "theme_color": "#181818",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
