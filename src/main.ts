@@ -4,6 +4,11 @@ import { createStore } from 'vuex'
 import App from './App.vue'
 import './assets/main.css'
 
+// @ts-ignore
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW({ immediate: true })
+
 const app = createApp(App);
 
 const store = createStore({
