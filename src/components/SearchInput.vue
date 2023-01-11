@@ -44,7 +44,7 @@ export default {
       window.history.pushState(
           {'anime': searchInput.value},
           'Anime',
-          `/?anime=${searchInput.value.replace(/\s+/g, "+")}`
+          `${import.meta.env.BASE_URL}?anime=${searchInput.value.replace(/\s+/g, "+")}`
       );
 
       this.setLoading(true);
