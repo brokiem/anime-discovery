@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - pwa
 jobs:
   gh-pages-deploy:
     name: Deploying to Github Pages
