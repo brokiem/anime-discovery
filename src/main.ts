@@ -14,7 +14,8 @@ const store = createStore({
     state() {
         return {
             loading: null,
-            anime: {}
+            anime: {},
+            hasScrollbar: false
         }
     },
     mutations: {
@@ -23,6 +24,9 @@ const store = createStore({
         },
         setAnime(state, payload) {
             state.anime = payload;
+        },
+        setHasScrollbar(state, payload) {
+            state.hasScrollbar = payload;
         }
     }
 });

@@ -25,6 +25,7 @@ export default {
       isLoading: computed(() => store.state.loading),
       setLoading: (loading) => store.commit("setLoading", loading),
       setAnime: (anime) => store.commit("setAnime", anime),
+      setHasScrollbar: (hasScrollbar) => store.commit("setHasScrollbar", hasScrollbar)
     }
   },
   mounted() {
@@ -48,14 +49,17 @@ export default {
       );
 
       this.setLoading(true);
+      this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
 
       getAnimeDetails(searchInput.value)
         .then((response) => {
           this.setLoading(false);
           this.setAnime(response);
+          this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
         })
         .catch((error) => {
           this.setLoading(false)
+          this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
           console.log(error);
         });
     }
