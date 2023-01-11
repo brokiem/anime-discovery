@@ -30,7 +30,7 @@
         />
         <text x="18" y="22.5" :fill="ratingColor.text" class="percentage">{{$store.state.anime.score}}</text>
       </svg>
-      <div class="pt-3"></div>
+      <div class="pt-2"></div>
       <p class="text-center text-gray-900 dark:text-white">Score</p>
     </div>
 
