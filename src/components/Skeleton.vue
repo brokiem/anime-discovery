@@ -23,7 +23,7 @@
 
   <hr class="animate-pulse rounded my-5">
 
-  <div class="animate-pulse h-44 bg-gray-200 rounded-md dark:bg-grey mb-2.5 w-full"></div>
+  <div class="animate-pulse h-40 bg-gray-200 rounded-md dark:bg-grey mb-2.5 w-full"></div>
 </template>
 
 <script>

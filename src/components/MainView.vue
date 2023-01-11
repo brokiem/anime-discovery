@@ -16,6 +16,8 @@
   </div>
 
   <div class="pb-20"></div>
+
+  <Footer/>
 </template>
 
 <script>
@@ -24,10 +26,11 @@ import Anime from "@/components/Anime.vue";
 import SearchInput from "@/components/SearchInput.vue";
 import {getAnimeDetails} from "@/assets/mal";
 import {useStore} from "vuex";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "MainView",
-  components: {SearchInput, Anime, Skeleton},
+  components: {Footer, SearchInput, Anime, Skeleton},
   setup() {
     const urlParams = new URLSearchParams(window.location.search);
     const animeTitle = urlParams.get("anime");
