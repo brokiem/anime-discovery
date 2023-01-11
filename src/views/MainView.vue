@@ -7,7 +7,7 @@
         <Skeleton v-if="($store.state.loading !== null && $store.state.loading)"/>
         <Anime v-if="($store.state.loading !== null && !$store.state.loading)"/>
 
-        <h1 v-if="$store.state.loading === null" class="text-center">
+        <h1 v-if="$store.state.loading === null" class="text-center text-gray-900 dark:text-white">
           Welcome to brokiem's Anime discovery!<br>
           Start searching for anime with the search button above.
         </h1>
