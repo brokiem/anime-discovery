@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
-    <img @click="redirect(anime.url)" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
+    <img @click="redirect(anime.url)" class="w-[318px] hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
 
     <div class="w-full">
       <span @click="copyToClipboard(`https://brokiem.is-a.dev/anime-discovery/?anime=${anime.title.replace(/\s+/g, '+')}`)" class="font-bold text-lg text-gray-900 dark:text-white" data-tooltip="Click to copy the page URL">
@@ -70,7 +70,15 @@
   </div>
 
   <p class="mt-8 mb-1 text-gray-900 dark:text-white">Trailer</p>
-  <iframe class="w-full rounded-md aspect-video" loading="lazy" :src="anime.trailer.replace('&autoplay=1', '')" :title="anime.japaneseTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div v-if="anime.trailer !== undefined">
+    <iframe class="w-full rounded-md aspect-video" loading="lazy" :src="anime.trailer.replace('&autoplay=1', '')" :title="anime.japaneseTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div v-else>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="ml-1">Trailer not available</span>
+  </div>
 
   <Toast class="fixed top-4 right-4" :class="showToast ? 'visible' : 'fade-out'"/>
 </template>
