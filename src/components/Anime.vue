@@ -3,7 +3,7 @@
     <img @click="redirect(anime.url)" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
 
     <div class="w-full">
-      <span class="font-bold text-lg text-gray-900 dark:text-white">
+      <span @click="copyToClipboard(`https://brokiem.is-a.dev/anime-discovery/?anime=${anime.title.replace(/\s+/g, '+')}`)" class="font-bold text-lg text-gray-900 dark:text-white" data-tooltip="Click to copy the page URL">
         {{ anime.title }}
         <span class="ml-1 bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
           {{ anime.type }}
@@ -71,16 +71,19 @@
 
   <p class="mt-8 mb-1">Trailer</p>
   <iframe class="w-full rounded-md aspect-video" loading="lazy" :src="anime.trailer.replace('&autoplay=1', '')" :title="anime.japaneseTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <Toast class="fixed top-4 right-4" :class="showToast ? 'visible' : 'fade-out'"/>
 </template>
 
 <script>
 import {useStore} from "vuex";
 import {computed} from "vue";
 import Character from "@/components/Character.vue";
+import Toast from "@/components/Toast.vue";
 
 export default {
   name: "Anime",
-  components: {Character},
+  components: {Toast, Character},
   setup() {
     const store = useStore();
 
@@ -101,9 +104,22 @@ export default {
       ratingColor
     };
   },
+  data() {
+    return {
+      showToast: false
+    };
+  },
   methods: {
     redirect(url) {
       window.open(url, "_blank");
+    },
+    copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+
+      this.showToast = true;
+      setTimeout(() => {
+        this.showToast = false;
+      }, 3000);
     }
   }
 }
@@ -131,5 +147,17 @@ export default {
 .percentage {
   font-size: 0.7em;
   text-anchor: middle;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 250ms, opacity 250ms linear;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 </style>
