@@ -23,6 +23,8 @@ const store = createStore({
             state.loading = payload;
         },
         setAnime(state, payload) {
+            payload.synopsis = payload.synopsis.replaceAll('[Written by MAL Rewrite]', '').replace(/\n+$/, '').replaceAll('\n', '<br>')
+
             state.anime = payload;
         },
         setHasScrollbar(state, payload) {

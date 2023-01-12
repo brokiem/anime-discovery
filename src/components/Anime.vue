@@ -1,15 +1,15 @@
 <template>
   <div class="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
-    <img @click="redirect(anime.url)" class="w-[318px] hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
+    <img @click="redirect(anime.url)" title="Click to open MyAnimeList.net page" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
 
     <div class="w-full">
-      <span @click="copyToClipboard(`https://brokiem.is-a.dev/anime-discovery/?anime=${anime.title.replace(/\s+/g, '+')}`)" class="font-bold text-lg text-gray-900 dark:text-white" data-tooltip="Click to copy the page URL">
+      <span @click="copyToClipboard(`https://brokiem.is-a.dev/anime-discovery/?anime=${anime.title.replace(/\s+/g, '+')}`)" class="mr-3 font-bold text-lg text-gray-900 dark:text-white" data-tooltip="Click to copy the page URL">
         {{ anime.title }}
-        <span class="ml-1 bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-          {{ anime.type }}
-        </span>
       </span>
-      <p class="mt-3 text-gray-900 dark:text-white" v-html="anime.synopsis.replaceAll('\n', '<br>').replaceAll('[Written by MAL Rewrite]', '')"></p>
+      <span class="inline bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+        {{ anime.type }}
+      </span>
+      <p class="mt-3 text-gray-900 dark:text-white" v-html="anime.synopsis"></p>
     </div>
     <span class="sr-only">Loading...</span>
   </div>
