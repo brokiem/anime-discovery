@@ -59,17 +59,17 @@
 
   <hr class="rounded my-5">
 
-  <p class="mb-1">Characters & Voice Actors</p>
+  <p class="mb-1 text-gray-900 dark:text-white">Characters & Voice Actors</p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3">
     <Character v-for="character in anime.characters" :character="character" />
   </div>
 
-  <p class="mt-8 mb-1">Staff</p>
+  <p class="mt-8 mb-1 text-gray-900 dark:text-white">Staff</p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3">
     <Character v-for="staff in anime.staff" :character="staff" :is-staff="true" />
   </div>
 
-  <p class="mt-8 mb-1">Trailer</p>
+  <p class="mt-8 mb-1 text-gray-900 dark:text-white">Trailer</p>
   <iframe class="w-full rounded-md aspect-video" loading="lazy" :src="anime.trailer.replace('&autoplay=1', '')" :title="anime.japaneseTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
   <Toast class="fixed top-4 right-4" :class="showToast ? 'visible' : 'fade-out'"/>
