@@ -66,7 +66,7 @@ export default {
 }
 @-moz-keyframes marquee {
   0% {
-    transform: translateX(31%);
+    transform: translateX(0);
   }
   100% {
     transform: translate(-100%);
@@ -74,7 +74,7 @@ export default {
 }
 @-webkit-keyframes marquee {
   0% {
-    transform: translateX(31%);
+    transform: translateX(0);
   }
   100% {
     transform: translate(-100%);
@@ -82,7 +82,7 @@ export default {
 }
 @-o-keyframes marquee {
   0% {
-    transform: translateX(31%);
+    transform: translateX(0);
   }
   100% {
     transform: translate(-100%);
@@ -90,7 +90,7 @@ export default {
 }
 @keyframes marquee {
   0% {
-    transform: translateX(31%);
+    transform: translateX(0);
   }
   100% {
     transform: translate(-100%);
