@@ -1,6 +1,6 @@
 <template>
   <div class="flex content-center justify-center">
-    <div class="mt-10 w-full max-w-4xl text-white">
+    <div class="mt-10 w-full max-w-5xl text-white">
       <SearchInput/>
 
       <div class="mt-8">

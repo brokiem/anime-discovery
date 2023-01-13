@@ -11,6 +11,7 @@
       <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag mt-10 w-[225px] h-[350px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10"></div>
       <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag mt-10 w-[225px] h-[350px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10"></div>
       <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag mt-10 w-[225px] h-[350px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10"></div>
+      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag mt-10 w-[225px] h-[350px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10"></div>
     </div>
   </div>
 </template>
