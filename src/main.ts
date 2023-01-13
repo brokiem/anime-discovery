@@ -15,6 +15,7 @@ const store = createStore({
         return {
             loading: null,
             anime: {},
+            recommendations: [],
             hasScrollbar: false
         }
     },
@@ -29,6 +30,9 @@ const store = createStore({
         },
         setHasScrollbar(state, payload) {
             state.hasScrollbar = payload;
+        },
+        setRecommendations(state, payload) {
+            state.recommendations = payload;
         }
     }
 });

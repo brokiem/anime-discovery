@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="search" class="flex items-center mb-4">
+  <form @submit.prevent="search" class="flex items-center mb-4 mx-5">
     <label for="searchInput" class="sr-only">Search</label>
     <div class="relative w-full">
       <input type="text" id="searchInput" class="outline-none ring-0 transition duration-200 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-4 p-2 dark:bg-grey dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>

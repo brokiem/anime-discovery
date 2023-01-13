@@ -1,16 +1,20 @@
 <template>
   <div class="flex content-center justify-center">
-    <div class="mt-10 w-full max-w-4xl mx-5 text-white">
+    <div class="mt-10 w-full max-w-4xl text-white">
       <SearchInput/>
 
       <div class="mt-8">
         <Skeleton v-if="($store.state.loading !== null && $store.state.loading)"/>
         <Anime v-if="($store.state.loading !== null && !$store.state.loading)"/>
 
-        <h1 v-if="$store.state.loading === null" class="text-center text-gray-900 dark:text-white">
+        <h1 v-if="$store.state.loading === null" class="text-center text-gray-900 dark:text-white mx-5">
           Welcome to brokiem's Anime discovery!<br>
           Start searching for anime with the search button above.
         </h1>
+
+        <div v-if="$store.state.loading === null" class="mt-12">
+          <Recommendations/>
+        </div>
       </div>
     </div>
   </div>
@@ -27,10 +31,11 @@ import SearchInput from "@/components/SearchInput.vue";
 import {getAnimeDetails} from "@/assets/mal";
 import {useStore} from "vuex";
 import Footer from "@/components/Footer.vue";
+import Recommendations from "@/components/Recommendations.vue";
 
 export default {
   name: "MainView",
-  components: {Footer, SearchInput, Anime, Skeleton},
+  components: {Recommendations, Footer, SearchInput, Anime, Skeleton},
   setup() {
     const urlParams = new URLSearchParams(window.location.search);
     const animeTitle = urlParams.get("anime");
