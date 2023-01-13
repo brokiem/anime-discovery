@@ -2,7 +2,7 @@
   <div class="marquee rounded-md mx-5">
     <div class="marquee-content" :style="{'animation-duration': $store.state.recommendations.length * 1500 + 'ms'}">
       <div v-for="anime in $store.state.recommendations" class="marquee-tag mt-10 w-[225px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10">
-        <a :href="'/?anime=' + anime.animeLink.split('/')[anime.animeLink.split('/').length - 1].replaceAll('_', '+')">
+        <a :href="'?anime=' + anime.animeLink.split('/')[anime.animeLink.split('/').length - 1].replaceAll('_', '+')">
           <img class="rounded-md h-[332px]" :title="anime.anime" :src="anime.pictureImage.replace('r/50x70/', '').split('?')[0].split('#')[0]" alt="" />
         </a>
       </div>
