@@ -85,7 +85,7 @@
 
     <p class="mt-8 mb-1 text-gray-900 dark:text-white">Trailer</p>
     <div v-if="anime.trailer !== undefined">
-      <iframe class="w-full rounded-md aspect-video" loading="lazy" :src="anime.trailer.replace('&autoplay=1', '')" :title="anime.japaneseTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <LiteYouTubeEmbed class="w-full rounded-md aspect-video" :cookie="true" :title="anime.title + ' Trailer'" :id="getVideoId(anime.trailer)"/>
     </div>
     <div v-else>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
@@ -107,10 +107,12 @@ import {computed} from "vue";
 import Character from "@/components/Character.vue";
 import Toast from "@/components/Toast.vue";
 import Recommendations from "@/components/Recommendations.vue";
+import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
+import 'vue-lite-youtube-embed/style.css'
 
 export default {
   name: "Anime",
-  components: {Recommendations, Toast, Character},
+  components: {LiteYouTubeEmbed, Recommendations, Toast, Character},
   setup() {
     const store = useStore();
 
@@ -147,6 +149,11 @@ export default {
       setTimeout(() => {
         this.showToast = false;
       }, 3000);
+    },
+    getVideoId(url){
+      const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[7].length === 11) ? match[7] : false;
     }
   }
 }
