@@ -21,12 +21,18 @@ const store = createStore({
     },
     mutations: {
         setLoading(state, payload) {
+            window.document.title = "Anime Discovery";
+
             state.loading = payload;
         },
         setAnime(state, payload) {
             payload.synopsis = payload.synopsis.replaceAll('[Written by MAL Rewrite]', '').replace(/\n+$/, '').replaceAll('\n', '<br>')
 
             state.anime = payload;
+
+            const englishTitle = payload.englishTitle.length > 0 ? `(${payload.englishTitle})` : '';
+            window.document.title = `${payload.title} ${englishTitle} | Anime Discovery`;
+            document.querySelector('meta[name="description"]')?.setAttribute("content", payload.synopsis);
         },
         setHasScrollbar(state, payload) {
             state.hasScrollbar = payload;
