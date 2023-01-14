@@ -1,10 +1,14 @@
 <template>
   <div class="marquee rounded-md mx-5">
     <div class="marquee-content" :style="{'animation-duration': $store.state.recommendations.length * 1500 + 'ms'}">
-      <div v-for="anime in $store.state.recommendations" class="marquee-tag w-[225px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10">
-        <a :href="'?anime=' + anime.animeLink.split('/')[anime.animeLink.split('/').length - 1].replaceAll('_', '+')">
-          <img class="rounded-md h-[332px]" :title="anime.anime" :src="anime.pictureImage.replace('r/50x70/', '').split('?')[0].split('#')[0]" alt="" />
-        </a>
+      <div v-for="anime in $store.state.recommendations">
+        <div class="marquee-tag w-[225px] bg-white border border-gray-200 rounded-md shadow-md dark:bg-grey dark:border-white/10">
+          <a :href="'?anime=' + anime.animeLink.split('/')[anime.animeLink.split('/').length - 1].replaceAll('_', '+')">
+            <img class="rounded-md h-[332px]" :title="anime.anime" :src="anime.pictureImage.replace('r/50x70/', '').split('?')[0].split('#')[0]" alt="" />
+          </a>
+        </div>
+
+        <h1 class="mt-2 text-center px-1">{{anime.anime}}</h1>
       </div>
 
       <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
@@ -19,6 +23,7 @@
 <script>
 import {getAnimeRecommendationsByName} from "@/assets/mal";
 import {useStore} from "vuex";
+import {getTopAnime} from "@/assets/anitop";
 
 export default {
   name: "Recommendations",
@@ -28,10 +33,15 @@ export default {
   setup(props) {
     const store = useStore();
 
-    getAnimeRecommendationsByName(props.animeName)
-        .then((response) => {
-          store.commit("setRecommendations", response);
-        })
+    if (!props.animeName) {
+      getTopAnime().then((response) => {
+        store.commit("setRecommendations", response.map(v => ({...v, anime: v.title, animeLink: v.url, pictureImage: v.picture})));
+      });
+    } else {
+      getAnimeRecommendationsByName(props.animeName).then((response) => {
+        store.commit("setRecommendations", response);
+      })
+    }
   },
 }
 </script>
