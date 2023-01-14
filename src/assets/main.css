@@ -41,11 +41,30 @@
             background-position: 0 50%;
         }
     }
+
+    .glow {
+        @apply transition-colors duration-300 ease-in-out;
+        background-color: transparent;
+        box-shadow: 0 -6em 2000px 50px;
+        color: transparent;
+    }
+
+    .fade-out {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 250ms, opacity 250ms linear;
+    }
+
+    .visible {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 100ms linear;
+    }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
     background: transparent;

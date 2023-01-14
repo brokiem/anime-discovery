@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "execa": "5.1.1",
+    "fast-average-color": "^9.3.0",
     "vue": "^3.2.45",
     "vuex": "^4.0.2"
   },

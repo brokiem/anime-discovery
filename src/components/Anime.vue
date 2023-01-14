@@ -1,16 +1,31 @@
 <template>
+  <Ambient image-element-name="anime-cover-image"/>
+
   <div class="mx-5">
     <div class="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
-      <img @click="redirect(anime.url)" title="Click to open MyAnimeList.net page" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
+      <img id="anime-cover-image" @click="redirect(anime.url)" title="Click to open MyAnimeList.net page" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
 
       <div class="w-full">
         <span @click="copyToClipboard(`https://brokiem.is-a.dev/anime-discovery/?anime=${anime.title.replace(/\s+/g, '+')}`)" class="mr-3 font-bold text-lg text-gray-900 dark:text-white" data-tooltip="Click to copy the page URL">
           {{ anime.title }}
+          <span class="bg-blue-100 text-blue-800 text-sm font-medium ml-1 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+            {{ anime.type }}
+          </span>
         </span>
-        <span class="inline bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-          {{ anime.type }}
-        </span>
-        <p class="mt-3 text-gray-900 dark:text-white" v-html="anime.synopsis"></p>
+
+        <div class="mt-1">
+          <div class="flex flex-row flex-wrap gap-y-2">
+            <div v-for="genre in anime.genres.filter(e => e !== 'Award Winning')" class="font-light w-fit border border-gray-400 rounded-md text-gray-900 text-xs mr-2 px-2 py-0.5 rounded dark:text-gray-200">
+              {{ genre }}
+            </div>
+          </div>
+        </div>
+
+<!--        <div v-for="genre in anime.genres.filter(e => e !== 'Award Winning')" class="hidden md:block md:float-right md:inline w-fit border border-gray-400 rounded-full text-gray-900 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:text-white">-->
+<!--          {{ genre }}-->
+<!--        </div>-->
+
+        <p class="mt-2 text-gray-900 dark:text-white md:max-h-[17.125rem] md:pr-2 overflow-x-hidden" v-html="anime.synopsis"></p>
       </div>
       <span class="sr-only">Loading...</span>
     </div>
@@ -94,10 +109,11 @@ import {computed} from "vue";
 import Character from "@/components/Character.vue";
 import Toast from "@/components/Toast.vue";
 import Recommendations from "@/components/Recommendations.vue";
+import Ambient from "@/components/Ambient.vue";
 
 export default {
   name: "Anime",
-  components: {Recommendations, Toast, Character},
+  components: {Ambient, Recommendations, Toast, Character},
   setup() {
     const store = useStore();
 
@@ -161,17 +177,5 @@ export default {
 .percentage {
   font-size: 0.7em;
   text-anchor: middle;
-}
-
-.fade-out {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 250ms, opacity 250ms linear;
-}
-
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 100ms linear;
 }
 </style>
