@@ -163,11 +163,11 @@ export default {
 .circle-bg {
   fill: none;
   stroke: #eee;
-  stroke-width: 3.3;
+  stroke-width: 2;
 }
 
 .circle {
-  stroke-width: 2.5;
+  stroke-width: 2.6;
   stroke-linecap: round;
   animation: progress 1.5s ease-in-out forwards;
 }
