@@ -1,6 +1,4 @@
 <template>
-  <Ambient image-element-name="anime-cover-image"/>
-
   <div class="mx-5">
     <div class="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
       <img id="anime-cover-image" @click="redirect(anime.url)" title="Click to open MyAnimeList.net page" class="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey" :src="anime.picture" alt="Anime cover">
@@ -109,11 +107,10 @@ import {computed} from "vue";
 import Character from "@/components/Character.vue";
 import Toast from "@/components/Toast.vue";
 import Recommendations from "@/components/Recommendations.vue";
-import Ambient from "@/components/Ambient.vue";
 
 export default {
   name: "Anime",
-  components: {Ambient, Recommendations, Toast, Character},
+  components: {Recommendations, Toast, Character},
   setup() {
     const store = useStore();
 

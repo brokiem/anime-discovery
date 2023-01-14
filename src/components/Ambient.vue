@@ -17,6 +17,9 @@ export default {
   },
   mounted() {
     const imageElement = document.getElementById(this.imageElementName);
+
+    if (imageElement === null) return;
+
     imageElement.crossOrigin = 'anonymous';
 
     imageElement.onload = () => {

@@ -4,6 +4,10 @@
       <SearchInput/>
 
       <div class="mt-8">
+        <Transition>
+          <Ambient v-if="($store.state.loading !== null && !$store.state.loading)" image-element-name="anime-cover-image"/>
+        </Transition>
+
         <Skeleton v-if="($store.state.loading !== null && $store.state.loading)"/>
         <Anime v-if="($store.state.loading !== null && !$store.state.loading)"/>
 
@@ -32,10 +36,11 @@ import {getAnimeDetails} from "@/assets/mal";
 import {useStore} from "vuex";
 import Footer from "@/components/Footer.vue";
 import Recommendations from "@/components/Recommendations.vue";
+import Ambient from "@/components/Ambient.vue";
 
 export default {
   name: "MainView",
-  components: {Recommendations, Footer, SearchInput, Anime, Skeleton},
+  components: {Ambient, Recommendations, Footer, SearchInput, Anime, Skeleton},
   setup() {
     const urlParams = new URLSearchParams(window.location.search);
     const animeTitle = urlParams.get("anime");
@@ -61,5 +66,11 @@ export default {
 </script>
 
 <style scoped>
+.v-leave-active {
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.v-leave-to {
+  opacity: 0;
+}
 </style>
