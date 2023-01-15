@@ -27,6 +27,7 @@ const store = createStore({
         },
         setAnime(state, payload) {
             payload.synopsis = payload.synopsis.replaceAll('[Written by MAL Rewrite]', '').replace(/\n+$/, '').replaceAll('\n', '<br>')
+            payload.genres = payload.genres.filter(genre => genre)
 
             state.anime = payload;
 
