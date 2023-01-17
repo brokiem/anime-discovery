@@ -1,5 +1,5 @@
 <template>
-  <div id="mprogress" class="mprogress-hidden" style="height: 3px !important;"></div>
+  <div id="mprogress" class="mprogress-hidden" style="height: 2px !important;"></div>
 
   <div class="flex content-center justify-center">
     <div class="mt-10 w-full max-w-5xl text-white">
@@ -60,6 +60,21 @@ export default {
       } else {
         document.getElementById('mprogress').classList.remove('mprogress-visible');
         document.getElementById('mprogress').classList.add('mprogress-hidden');
+      }
+    });
+
+    watchEffect(() => {
+      const data = store.getters.isRecommendationLoading;
+      if (data === null) return;
+
+      if(data) {
+        document.getElementById('mprogress').classList.remove('mprogress-hidden');
+        document.getElementById('mprogress').classList.add('mprogress-visible');
+      } else {
+        setTimeout(() => {
+          document.getElementById('mprogress').classList.remove('mprogress-visible');
+          document.getElementById('mprogress').classList.add('mprogress-hidden');
+        }, 200);
       }
     })
 

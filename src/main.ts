@@ -16,6 +16,7 @@ const store = createStore({
             loading: null,
             anime: {},
             recommendations: [],
+            recommendationLoading: null,
             hasScrollbar: false
         }
     },
@@ -40,11 +41,17 @@ const store = createStore({
         },
         setRecommendations(state, payload) {
             state.recommendations = payload;
+        },
+        setRecommendationLoading(state, payload) {
+            state.recommendationLoading = payload;
         }
     },
     getters: {
         isLoading(state) {
             return state.loading;
+        },
+        isRecommendationLoading(state) {
+            return state.recommendationLoading;
         }
     }
 });

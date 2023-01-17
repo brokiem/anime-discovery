@@ -11,12 +11,19 @@
         <h1 class="mt-2 text-center px-1">{{anime.anime}}</h1>
       </div>
 
-      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
-      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
-      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
-      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
-      <div v-if="$store.state.recommendations.length <= 0" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
+      <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
+      <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
+      <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
+      <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
+      <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
     </div>
+  </div>
+
+  <div v-if="!$store.state.recommendationLoading && $store.state.recommendations.length <= 0" class="mx-5">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="ml-1">No recommendations found.</span>
   </div>
 </template>
 
@@ -33,12 +40,16 @@ export default {
   setup(props) {
     const store = useStore();
 
+    store.commit('setRecommendationLoading', true);
+
     if (!props.animeName) {
       getTopAnime().then((response) => {
+        store.commit('setRecommendationLoading', false);
         store.commit("setRecommendations", response.map(v => ({...v, anime: v.title, animeLink: v.url, pictureImage: v.picture})));
       });
     } else {
       getAnimeRecommendationsByName(props.animeName).then((response) => {
+        store.commit('setRecommendationLoading', false);
         store.commit("setRecommendations", response);
       })
     }
