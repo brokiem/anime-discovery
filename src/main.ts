@@ -41,6 +41,11 @@ const store = createStore({
         setRecommendations(state, payload) {
             state.recommendations = payload;
         }
+    },
+    getters: {
+        isLoading(state) {
+            return state.loading;
+        }
     }
 });
 

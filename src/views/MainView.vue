@@ -1,4 +1,6 @@
 <template>
+  <div id="mprogress" class="mprogress-hidden"></div>
+
   <div class="flex content-center justify-center">
     <div class="mt-10 w-full max-w-5xl text-white">
       <SearchInput/>
@@ -37,6 +39,9 @@ import {useStore} from "vuex";
 import Footer from "@/components/Footer.vue";
 import Recommendations from "@/components/Recommendations.vue";
 import Ambient from "@/components/Ambient.vue";
+import {watchEffect} from "vue";
+import {show, hide} from 'material-progress-bar/mprogress.js';
+import 'material-progress-bar/mprogress.css';
 
 export default {
   name: "MainView",
@@ -45,6 +50,17 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const animeTitle = urlParams.get("anime");
     const store = useStore();
+
+    watchEffect(() => {
+      const data = store.getters.isLoading;
+      if (data === null) return;
+
+      if(data) {
+        show();
+      } else {
+        hide();
+      }
+    })
 
     if (animeTitle !== null) {
       store.commit("setLoading", true);
