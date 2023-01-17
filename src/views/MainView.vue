@@ -1,5 +1,5 @@
 <template>
-  <div id="mprogress" class="mprogress-hidden"></div>
+  <div id="mprogress" class="mprogress-hidden" style="height: 3px !important;"></div>
 
   <div class="flex content-center justify-center">
     <div class="mt-10 w-full max-w-5xl text-white">
@@ -40,7 +40,6 @@ import Footer from "@/components/Footer.vue";
 import Recommendations from "@/components/Recommendations.vue";
 import Ambient from "@/components/Ambient.vue";
 import {watchEffect} from "vue";
-import {show, hide} from 'material-progress-bar/mprogress.js';
 import 'material-progress-bar/mprogress.css';
 
 export default {
@@ -56,9 +55,11 @@ export default {
       if (data === null) return;
 
       if(data) {
-        show();
+        document.getElementById('mprogress').classList.remove('mprogress-hidden');
+        document.getElementById('mprogress').classList.add('mprogress-visible');
       } else {
-        hide();
+        document.getElementById('mprogress').classList.remove('mprogress-visible');
+        document.getElementById('mprogress').classList.add('mprogress-hidden');
       }
     })
 
