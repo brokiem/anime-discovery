@@ -6,9 +6,13 @@
           <a :href="'?anime=' + anime.animeLink.split('/')[anime.animeLink.split('/').length - 1].replaceAll('_', '+')">
             <img class="rounded-md h-[332px]" :title="anime.anime" :src="anime.pictureImage.replace('r/50x70/', '').split('?')[0].split('#')[0]" alt="" />
           </a>
+
+<!--          <div class="vignette absolute bottom-2 rounded-b-md w-full py-1 max-w-[210px]"></div>-->
         </div>
 
-        <h1 class="mt-2 text-center px-1">{{anime.anime}}</h1>
+        <h1 class="text-center text-gray-900 dark:text-white w-full mt-1 mx-auto text max-w-[210px]">
+          {{anime.anime}}
+        </h1>
       </div>
 
       <div v-if="$store.state.recommendationLoading" class="marquee-tag animate-pulse w-[225px] h-[350px] bg-white rounded-md shadow-sm dark:bg-grey"></div>
@@ -58,7 +62,19 @@ export default {
 </script>
 
 <style scoped>
-
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.vignette {
+  content: "";
+  height: 25%;
+  background: linear-gradient(to top, #181818, transparent);
+}
 .marquee {
   box-sizing: border-box;
   display: flex;
