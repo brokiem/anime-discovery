@@ -39,7 +39,7 @@ import {useStore} from "vuex";
 import Footer from "@/components/Footer.vue";
 import Recommendations from "@/components/Recommendations.vue";
 import Ambient from "@/components/Ambient.vue";
-import {watchEffect} from "vue";
+import {computed} from "vue";
 import 'material-progress-bar/mprogress.css';
 
 export default {
@@ -49,34 +49,6 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const animeTitle = urlParams.get("anime");
     const store = useStore();
-
-    watchEffect(() => {
-      const data = store.getters.isLoading;
-      if (data === null) return;
-
-      if(data) {
-        document.getElementById('mprogress').classList.remove('mprogress-hidden');
-        document.getElementById('mprogress').classList.add('mprogress-visible');
-      } else {
-        document.getElementById('mprogress').classList.remove('mprogress-visible');
-        document.getElementById('mprogress').classList.add('mprogress-hidden');
-      }
-    });
-
-    watchEffect(() => {
-      const data = store.getters.isRecommendationLoading;
-      if (data === null) return;
-
-      if(data) {
-        document.getElementById('mprogress').classList.remove('mprogress-hidden');
-        document.getElementById('mprogress').classList.add('mprogress-visible');
-      } else {
-        setTimeout(() => {
-          document.getElementById('mprogress').classList.remove('mprogress-visible');
-          document.getElementById('mprogress').classList.add('mprogress-hidden');
-        }, 200);
-      }
-    })
 
     if (animeTitle !== null) {
       store.commit("setLoading", true);
@@ -92,7 +64,36 @@ export default {
           });
     }
 
-    return {animeTitle}
+    return {
+      animeTitle,
+      isLoading: computed(() => store.state.loading),
+      isRecommendationLoading: computed(() => store.state.recommendationLoading),
+      setHasScrollbar: (hasScrollbar) => store.commit("setHasScrollbar", hasScrollbar)
+    }
+  },
+  watch: {
+    isLoading(newValue, oldValue) {
+      if (newValue) {
+        document.getElementById('mprogress').classList.remove('mprogress-hidden');
+        document.getElementById('mprogress').classList.add('mprogress-visible');
+      } else {
+        document.getElementById('mprogress').classList.remove('mprogress-visible');
+        document.getElementById('mprogress').classList.add('mprogress-hidden');
+      }
+
+      setTimeout(() => {
+        this.setHasScrollbar(document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight));
+      }, 1);
+    },
+    isRecommendationLoading(newValue, oldValue) {
+      if (newValue) {
+        document.getElementById('mprogress').classList.remove('mprogress-hidden');
+        document.getElementById('mprogress').classList.add('mprogress-visible');
+      } else {
+        document.getElementById('mprogress').classList.remove('mprogress-visible');
+        document.getElementById('mprogress').classList.add('mprogress-hidden');
+      }
+    },
   }
 }
 </script>
