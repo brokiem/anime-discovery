@@ -1,5 +1,5 @@
 <template>
-  <div id="mprogress" class="mprogress-hidden" style="height: 2px !important;"></div>
+  <div id="mprogress" class="mprogress-visible" style="height: 2px !important;"></div>
 
   <div class="flex content-center justify-center">
     <div class="mt-10 w-full max-w-5xl text-white">
