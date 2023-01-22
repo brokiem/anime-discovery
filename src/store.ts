@@ -23,7 +23,7 @@ const store = createStore({
             state.anime = payload;
 
             const englishTitle = payload.englishTitle.length > 0 ? ` (${payload.englishTitle})` : '';
-            window.document.title = `${payload.title}${englishTitle} | Anime Discovery`;
+            window.document.title = `${payload.title}${englishTitle} - Anime Discovery`;
             document.querySelector('meta[name="description"]')?.setAttribute("content", payload.synopsis);
         },
         setHasScrollbar(state, payload) {
