@@ -34,7 +34,7 @@ export default function Loading() {
                             <span className="sr-only">Loading...</span>
                         </div>
 
-                        <hr className="animate-pulse rounded my-5"/>
+                        <hr className="animate-pulse rounded my-5" />
 
                         <div className="animate-pulse h-40 bg-gray-200 rounded-md dark:bg-grey mb-2.5 w-full"></div>
                     </div>
