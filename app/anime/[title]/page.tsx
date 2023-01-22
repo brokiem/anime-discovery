@@ -3,7 +3,16 @@ import Image from 'next/image';
 import styles from './anime.module.css';
 
 async function getAnimeDetails(title: string) {
-    return await getInfoFromName(title, true);
+    let res = await fetch(`https://kitsu.io/api/edge/anime?filter[text]=${title}&page[limit]=1&page[offset]=0`, {
+        next: { revalidate: 604800 }
+    });
+    res = await res.json();
+
+    /** @ts-ignore */
+    res = res.data[0];
+
+    /** @ts-ignore */
+    return await getInfoFromName(res.attributes.titles.ja_jp, false);
 }
 
 function getRatingColor(score: number) {
@@ -36,7 +45,7 @@ export default async function Anime({params}: any) {
                                 sizes="100vw"
                                 quality={100}
                                 alt="Anime cover"
-                                className="hover:cursor-pointer flex items-center justify-center mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey"
+                                className="hover:cursor-pointer flex items-center justify-center w-auto mx-auto h-80 bg-gray-300 rounded-md dark:bg-grey"
                             />
 
                             <div className="w-full">
