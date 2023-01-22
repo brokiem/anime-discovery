@@ -51,6 +51,7 @@ export default async function Anime({params}: any) {
                                 <div className="mt-1">
                                     <div className="flex flex-row flex-wrap gap-y-2">
                                         {
+                                            /** @ts-ignore */
                                             animeDetails.genres?.filter((genre: any) => genre).filter(e => e !== 'Award Winning').map(genre => (
                                                 <div className="font-light w-fit border border-gray-400 rounded text-gray-900 text-xs mr-2 px-2 py-0.5 dark:text-gray-200" key={genre}>
                                                     {genre}

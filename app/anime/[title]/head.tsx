@@ -7,7 +7,7 @@ async function getAnimeDetails(title: string) {
 export default async function Head({params}: any) {
     const animeDetails = await getAnimeDetails(params.title);
 
-    const englishTitle = animeDetails.englishTitle?.length > 0 ? ` (${animeDetails.englishTitle})` : '';
+    const englishTitle = animeDetails?.englishTitle?.length > 0 ? ` (${animeDetails.englishTitle})` : '';
     const title = animeDetails.title + englishTitle + ' | Anime Discovery';
 
     return (

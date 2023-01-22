@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export async function getTopAnime() {
+async function getTopAnime() {
     const API_URL = "https://anitop-brokiem.vercel.app/api";
 
     let res = await fetch(`${API_URL}/v1/top-anime`, {
@@ -8,9 +8,13 @@ export async function getTopAnime() {
     });
     res = await res.json();
 
+    /** @ts-ignore */
     if (res.code === 200) {
+        /** @ts-ignore */
         res.data.length = Math.min(res.data.length, 40);
+        /** @ts-ignore */
         res.data = res.data.map((v: { title: any; url: any; picture: any; }) => ({...v, anime: v.title, animeLink: v.url, pictureImage: v.picture}));
+        /** @ts-ignore */
         return res.data;
     }
 
@@ -18,6 +22,8 @@ export async function getTopAnime() {
 }
 
 export default async function Home() {
+    const topAnime = await getTopAnime();
+
     return (
         <>
             <main>
@@ -29,7 +35,7 @@ export default async function Home() {
                         </h1>
 
                         <div className="mt-12">
-                            <Recommendations recommendations={await getTopAnime()} />
+                            <Recommendations recommendations={topAnime} />
                         </div>
                     </div>
                 </div>
