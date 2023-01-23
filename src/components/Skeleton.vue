@@ -8,19 +8,20 @@
       <div class="w-full">
         <div class="h-5 bg-gray-200 rounded-full dark:bg-grey w-80 mb-4"></div>
 
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[580px] mb-2.5 mt-8"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey mb-2.5 max-w-[590px]"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[540px] mb-2.5"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[570px] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[97%] mb-2.5 mt-8"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey mb-2.5 max-w-[95%]"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[98%] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[93%] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[90%] mb-2.5"></div>
 
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[560px] mb-2.5 mt-8"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[550px] mb-2.5"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[580px] mb-2.5"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey mb-2.5 max-w-[590px]"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[96%] mb-2.5 mt-8"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[95%] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[97%] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey mb-2.5 max-w-[92%]"></div>
 
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[540px] mb-2.5 mt-8"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[560px] mb-2.5"></div>
-        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[460px]"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[97%] mb-2.5 mt-8"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[99%] mb-2.5"></div>
+        <div class="h-2 bg-gray-200 rounded-full dark:bg-grey max-w-[95%]"></div>
       </div>
 
       <span class="sr-only">Loading...</span>
