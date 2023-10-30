@@ -8,12 +8,14 @@ jobs:
     name: Deploying to Github Pages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
+      - name: Setup yarn
+        run: yarn set version stable
       - name: Install packages
-        run: npm i
+        run: yarn install --immutable
       - name: Set Creds
         run: git config user.name "brokiem" && git config user.email "${{ secrets.EMAIL }}"
       - name: Deploy
