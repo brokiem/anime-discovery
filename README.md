@@ -8,17 +8,17 @@ https://brokiem.is-a.dev/anime-discovery/
 ## Project Setup (DEVELOPMENT ONLY)
 
 ```sh
-npm install
+yarn install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+yarn build
 ```

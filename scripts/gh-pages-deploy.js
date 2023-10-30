@@ -4,7 +4,7 @@ const fs = require("fs");
     try {
         await execa("git", ["checkout", "--orphan", "gh-pages"]);
         console.log("Building started...");
-        await execa("npm", ["run", "build-only"]);
+        await execa("yarn", ["build-only"]);
         const folderName = fs.existsSync("dist") ? "dist" : "build";
         await execa("git", ["--work-tree", folderName, "add", "--all"]);
         await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);

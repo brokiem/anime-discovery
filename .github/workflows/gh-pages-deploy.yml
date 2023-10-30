@@ -19,4 +19,4 @@ jobs:
       - name: Set Creds
         run: git config user.name "brokiem" && git config user.email "${{ secrets.EMAIL }}"
       - name: Deploy
-        run: npm run deploy
+        run: yarn deploy
