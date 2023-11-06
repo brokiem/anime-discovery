@@ -1953,7 +1953,7 @@ __metadata:
     tailwindcss: "npm:^3.3.5"
     typescript: "npm:~5.2.2"
     vite: "npm:^4.5.0"
-    vite-plugin-pwa: "npm:^0.16.6"
+    vite-plugin-pwa: "npm:^0.16.7"
     vue: "npm:^3.3.7"
     vue-lite-youtube-embed: "npm:^1.2.1"
     vue-tsc: "npm:^1.8.22"
@@ -5305,9 +5305,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:^0.16.6":
-  version: 0.16.6
-  resolution: "vite-plugin-pwa@npm:0.16.6"
+"vite-plugin-pwa@npm:^0.16.7":
+  version: 0.16.7
+  resolution: "vite-plugin-pwa@npm:0.16.7"
   dependencies:
     debug: "npm:^4.3.4"
     fast-glob: "npm:^3.3.1"
@@ -5318,7 +5318,7 @@ __metadata:
     vite: ^3.1.0 || ^4.0.0 || ^5.0.0-0
     workbox-build: ^7.0.0
     workbox-window: ^7.0.0
-  checksum: 9d6d051e044f2a2b5b8adc34ae10a849eb6b1e98d3a3cdd5630e9043ab12b46edd0d9e410d9733ad30af2b0fbfa62a4f739a3b021d09f26e1cefc79a632d9454
+  checksum: 3472fdf3677b55c809e9a71a8cb0a808f9c63de7639557c39e7d0d8ec256d92e9b1ae65aafa215b34a910641475ee38b55e561fea86b5c1404b42a56aab90ca8
   languageName: node
   linkType: hard
 
