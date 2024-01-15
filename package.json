@@ -13,7 +13,7 @@
     "execa": "5.1.1",
     "fast-average-color": "^9.4.0",
     "material-progress-bar": "^0.0.6",
-    "vue": "^3.3.7",
+    "vue": "^3.4.13",
     "vue-lite-youtube-embed": "^1.2.1",
     "vuex": "^4.1.0"
   },
