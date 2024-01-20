@@ -1952,7 +1952,7 @@ __metadata:
     postcss: "npm:^8.4.31"
     tailwindcss: "npm:^3.3.5"
     typescript: "npm:~5.2.2"
-    vite: "npm:^4.5.0"
+    vite: "npm:^4.5.2"
     vite-plugin-pwa: "npm:^0.16.6"
     vue: "npm:^3.3.7"
     vue-lite-youtube-embed: "npm:^1.2.1"
@@ -5322,9 +5322,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "vite@npm:4.5.0"
+"vite@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "vite@npm:4.5.2"
   dependencies:
     esbuild: "npm:^0.18.10"
     fsevents: "npm:~2.3.2"
@@ -5358,7 +5358,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 7e21e9e4b80656ae5ee61e8c5edb5e8f589139c2b22c43e89d054c65a0194f1c1ef066fbc770204173c7eb244c798265042f988adda5880ad74337a053b28b7f
+  checksum: 68969ccf72ad2078aec7d9e023fce6de03746a4761f9308924212fff7bd42487145b270166cec66cddacfd7b1315ec5aa39ead174fbd7fcd463637a96ff4c9d1
   languageName: node
   linkType: hard
 
