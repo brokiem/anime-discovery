@@ -1680,12 +1680,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.8.9":
+"@types/node@npm:*":
   version: 20.8.9
   resolution: "@types/node@npm:20.8.9"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 6fb5604ac087c8be9aeb9ee1413fae2e691c603c9a691bd722e113597b883f21e8380a44d114ab894b435a491bfc939c8478cd57bcf890c585b961343b124964
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.11.5":
+  version: 20.11.5
+  resolution: "@types/node@npm:20.11.5"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
   languageName: node
   linkType: hard
 
@@ -1941,7 +1950,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "anime-discovery@workspace:."
   dependencies:
-    "@types/node": "npm:^20.8.9"
+    "@types/node": "npm:^20.11.5"
     "@vitejs/plugin-vue": "npm:^4.4.0"
     "@vue/tsconfig": "npm:^0.4.0"
     autoprefixer: "npm:^10.4.16"
